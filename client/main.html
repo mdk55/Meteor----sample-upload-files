@@ -1,0 +1,82 @@
+<head>
+  <title>Sample Upload and Source Download Seed</title>
+</head>
+
+<body>
+ 
+<div class="container">
+    {{> d8dbankpanel}}
+    <hr>
+    <label>For Develeopment Purposes: </label>
+    <hr>
+  {{> info}}
+    </div>
+</body>
+
+
+<template name="info">
+    <div class="col-md-5">
+  <h2>-- How to prevent "Indirect Expropriation" of non-monitored downloads --  </h2>
+  <ul>
+    <li><a href="https://www.meteor.com/try">Do not upload anything for the sake of self-storage</a></li>
+    <li><a href="http://guide.meteor.com">Do provide a Guidelines to title and .type handles </a></li>
+    <li><a href="https://docs.meteor.com">Do provide an Index Table and Terms section </a></li>
+    <li><a href="https://forums.meteor.com">Do allow users to provide notes </a></li>
+  </ul>
+    </div>
+</template>
+
+
+<template name="d8dbankpanel">
+ 
+    <div class="col-md-5" style="margin-top:25px;margin-right:15px;">
+    <div class="panel panel-default">
+        
+        <div class="panel-heading">
+            <h3 class="">Uploads Section </h3>
+        </div>
+        
+        
+        <div class="panel-body">
+            <p>
+            
+                Add Files: 
+                <span class="btn btn-default btn-file">
+                <input multiple class="file fileInput" type="file" />
+                </span>
+            
+            </p>
+            
+        </div>
+        
+        <div class="col-md-9">
+            
+            <table class="table table-hover table-striped table-bordered">
+              
+                <thead>                
+                <th>File Name: </th>
+                    <th>Download: </th>                                
+                </thead>
+                
+                <tbody>
+                {{#each uploads}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
+                    <a class="btn btn-primary" href="{{url download=true}}">Download File</a>
+                        </td>
+                        <td><button 
+id="deleteFileButton">Delete</button></td>
+                    
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+                
+            </div>
+        
+        
+        </div>
+    </div>
+
+</template>
